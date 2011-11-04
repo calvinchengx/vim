@@ -19,3 +19,6 @@
 [submodule "bundle/mxml"]
 	path = bundle/mxml
 	url = https://github.com/cespare/mxml.vim.git
+[submodule "bundle/nerdcommenter"]
+	path = bundle/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter.git
