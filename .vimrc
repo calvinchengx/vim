@@ -28,8 +28,9 @@ set nofoldenable
 "set foldnestmax=2
 
 set title
-set lines=999
-set columns=999
+" These two lines are not portable on linux
+" set lines=999
+" set columns=999
 set go-=T
 " small hack
 set guioptions+=lrb
