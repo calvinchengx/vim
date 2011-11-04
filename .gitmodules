@@ -7,3 +7,6 @@
 [submodule "bundle/IndentAnything"]
 	path = bundle/IndentAnything
 	url = https://github.com/vim-scripts/IndentAnything.git
+[submodule "bundle/django.vim"]
+	path = bundle/django.vim
+	url = https://github.com/vim-scripts/django.vim
