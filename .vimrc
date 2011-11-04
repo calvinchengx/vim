@@ -1,7 +1,6 @@
-" An example for a vimrc file.
+" My personalized vimrc file.
 "
-" Maintainer:	Bram Moolenaar <Bram@vim.org>
-" Last change:	2006 Nov 16
+" Maintainer calvin@calvinx.com
 "
 " To use it, copy it to
 "     for Unix and OS/2:  ~/.vimrc
@@ -9,19 +8,25 @@
 "  for MS-DOS and Win32:  $VIM\_vimrc
 "	    for OpenVMS:  sys$login:.vimrc
 
-"
-"
-"
-" gVim settings
-"colorscheme elflord
+" set your colorscheme. 
+
+colorscheme elflord
 "colorscheme django
 "colorscheme blacklight
 "colorscheme wombat
 "colorscheme zellner
-colorscheme evening
+"colorscheme evening
 "colorscheme torte
 "colorscheme pablo
 "set transparency=25
+
+call pathogen#infect()
+
+set nofoldenable
+"set foldmethod=indent
+"set foldlevel=99
+"set foldnestmax=2
+
 set title
 set lines=999
 set columns=999
@@ -35,13 +40,23 @@ set number
 " MacVim settings
 
 " End MacVim settings
+"
+
+set swapfile
+set dir=~/tmp
+set backupdir=~/tmp
+
+if $VIM_CRONTAB == "true"
+	set nobackup
+	set nowritebackup
+endif
 
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
   finish
 endif
 
-" Use Vim settings, rather then Vi settings (much better!).
+" Use Vim settings, rather then Vi settings much better!.
 " This must be first, because it changes other options as a side effect.
 "set nocompatible
 
@@ -154,7 +169,7 @@ if has("autocmd")
 
 	" autoclose tags
 	" use ctrl-_ to close the last opened tag
-	au Filetype html,xml,xsl source ~/.vim/plugin/closetag/closetag.vim 
+	" au Filetype html,xml,xsl source ~/.vim/plugin/closetag/closetag.vim 
 
 	" htmldjango
 	au FileType htmldjango setlocal shiftwidth=4
@@ -162,10 +177,11 @@ if has("autocmd")
 	au FileType htmldjango setlocal softtabstop=4
 	au FileType htmldjango setlocal expandtab
 
+	" crontab
+	au FileType crontab set nobackup nowritebackup
 
-	" allml, quick inserting for tags
+	" ragtag, quick inserting for tags
 	let g:allml_global_maps = 1 
-	source ~/.vim/plugin/allml/allml.vim
 
 	"autocompletion for basic languages
 	autocmd FileType python set omnifunc=pythoncomplete#Complete
@@ -224,6 +240,7 @@ map <D-J> :set hlsearch<CR>
 "map browse files
 map <F3> :o .<CR>
 map <F4> :E <CR>
+map <F5> :nohl <CR>
 
 "Django
 "for templates
@@ -268,7 +285,22 @@ ab _post $_POST['']
 ab sefl self
 
 " python settings
-"autocmd BufRead *.py setlocal shiftwidth=4
-"autocmd BufRead *.py setlocal tabstop=4
-"autocmd BufRead *.py setlocal softtabstop=4
-"autocmd BufRead *.py setlocal expandtab
+autocmd BufRead *.py setlocal shiftwidth=4
+autocmd BufRead *.py setlocal tabstop=4
+autocmd BufRead *.py setlocal softtabstop=4
+autocmd BufRead *.py setlocal expandtab
+
+map ,sh :source ~/.vim/vimsh.vim<CR>
+map ,shpy :source ~/.vim/vimsh.vim
+
+command! -nargs=0 -bar Qargs execute 'args ' . QuickfixFilenames()
+function! QuickfixFilenames()
+	" Building a hash ensures we get each buffer only once
+	let buffer_numbers = {}
+	for quickfix_item in getqflist()
+		let buffer_numbers[quickfix_item['bufnr']] = bufname(quickfix_item['bufnr'])
+	endfor
+	return join(values(buffer_numbers))
+endfunction
+
+map <leader>b :ls<CR>:b

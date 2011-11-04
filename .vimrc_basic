@@ -1,0 +1,25 @@
+
+colorscheme evening		" theme
+syntax on			" syntax highlighting
+filetype plugin indent on 	" try to detect filetypes
+set title			" set the title
+set backspace=indent,eol,start	" allow backspacing over everything in insert mode
+set foldmethod=indent
+set foldlevel=99		" code folding with za
+set hlsearch			" highlight all search terms
+set incsearch			" highlight as you search
+set enc=utf-8			" set encoding in case your terminal doesn't
+let mapleader=","		" convenient way to start a visual mode command
+
+" Keyboard mappings
+map <F2> :w<CR>
+map <F3> :o .<CR>		
+map <F4> :E <CR>		
+map <F5> :nohl <CR>
+map <leader><Up> :tabnew<CR> 
+map <leader><Down> :tabclose<CR>
+map <leader><Left> gT<CR>
+map <leader><Right> gt<CR>
+
+" Easy way to organize your vim plugins
+call pathogen#infect()
