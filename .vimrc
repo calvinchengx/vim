@@ -43,9 +43,9 @@ set number
 " End MacVim settings
 "
 
-set swapfile
-set dir=~/tmp
-set backupdir=~/tmp
+" set swapfile
+" set dir=~/tmp
+" set backupdir=~/tmp
 
 if $VIM_CRONTAB == "true"
 	set nobackup
