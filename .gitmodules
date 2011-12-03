@@ -31,3 +31,9 @@
 [submodule "bundle/vim-ragtag"]
 	path = bundle/vim-ragtag
 	url = https://github.com/tpope/vim-ragtag.git
+[submodule "bundle/virtualenv.vim"]
+	path = bundle/virtualenv.vim
+	url = git://github.com/vim-scripts/virtualenv.vim.git
+[submodule "bundle/zenburn"]
+	path = bundle/zenburn
+	url = git://github.com/vim-scripts/Zenburn.git

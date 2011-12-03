@@ -8,9 +8,12 @@
 "  for MS-DOS and Win32:  $VIM\_vimrc
 "	    for OpenVMS:  sys$login:.vimrc
 
+call pathogen#infect()
+
 " set your colorscheme. 
 
-colorscheme elflord
+colorscheme zenburn
+"colorscheme elflord
 "colorscheme django
 "colorscheme blacklight
 "colorscheme wombat
@@ -20,7 +23,6 @@ colorscheme elflord
 "colorscheme pablo
 "set transparency=25
 
-call pathogen#infect()
 
 set nofoldenable
 "set foldmethod=indent
