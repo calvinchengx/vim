@@ -130,6 +130,8 @@ endif
 "inoremap <D-Down> <C-O>gt
 "onoremap <D-Down> <C-C>gt
 
+au BufNewFile,BufRead *.map setf map
+
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
 	" In many terminal emulators the mouse works just fine, thus enable it.
@@ -167,6 +169,7 @@ if has("autocmd")
 	" flex
 	au BufNewFile,BufRead *.mxml set filetype=mxml
 	au BufNewFile,BufRead *.as set filetype=actionscript
+
 	au BufNewFile,BufRead *.py set filetype=python
 
 

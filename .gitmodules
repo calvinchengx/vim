@@ -37,3 +37,6 @@
 [submodule "bundle/zenburn"]
 	path = bundle/zenburn
 	url = git://github.com/vim-scripts/Zenburn.git
+[submodule "bundle/vim-mapserver"]
+	path = bundle/vim-mapserver
+	url = git://github.com/calvinchengx/vim-mapserver.git
