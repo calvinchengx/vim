@@ -40,3 +40,6 @@
 [submodule "bundle/vim-mapserver"]
 	path = bundle/vim-mapserver
 	url = git://github.com/calvinchengx/vim-mapserver.git
+[submodule "bundle/syntastic"]
+	path = bundle/syntastic
+	url = git://github.com/scrooloose/syntastic.git

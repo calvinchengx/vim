@@ -245,7 +245,7 @@ map <D-J> :set hlsearch<CR>
 
 "map browse files
 map <F3> :o .<CR>
-map <F4> :E <CR>
+map <F4> :Ex <CR>
 map <F5> :nohl <CR>
 
 "Django
