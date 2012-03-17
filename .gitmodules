@@ -61,3 +61,6 @@
 [submodule "bundle/mustang-vim"]
 	path = bundle/mustang-vim
 	url = git://github.com/croaker/mustang-vim.git
+[submodule "bundle/jslint.vim"]
+	path = bundle/jslint.vim
+	url = git://github.com/hallettj/jslint.vim.git
