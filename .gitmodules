@@ -46,3 +46,6 @@
 [submodule "bundle/Vimpress"]
 	path = bundle/Vimpress
 	url = git://github.com/PotHix/Vimpress.git
+[submodule "bundle/python-mode"]
+	path = bundle/python-mode
+	url = git://github.com/klen/python-mode.git
