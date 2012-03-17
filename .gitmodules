@@ -58,3 +58,6 @@
 [submodule "bundle/paster.vim"]
 	path = bundle/paster.vim
 	url = git://github.com/weierophinney/paster.vim.git
+[submodule "bundle/mustang-vim"]
+	path = bundle/mustang-vim
+	url = git://github.com/croaker/mustang-vim.git

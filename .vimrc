@@ -12,7 +12,8 @@ call pathogen#infect()
 
 " set your colorscheme. 
 
-colorscheme zenburn
+colorscheme mustang
+"colorscheme zenburn
 "colorscheme elflord
 "colorscheme django
 "colorscheme blacklight
