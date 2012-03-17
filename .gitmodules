@@ -49,3 +49,6 @@
 [submodule "bundle/python-mode"]
 	path = bundle/python-mode
 	url = git://github.com/klen/python-mode.git
+[submodule "bundle/textutil"]
+	path = bundle/textutil
+	url = git://github.com/vim-scripts/textutil.vim.git
