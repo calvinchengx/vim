@@ -52,3 +52,9 @@
 [submodule "bundle/textutil"]
 	path = bundle/textutil
 	url = git://github.com/vim-scripts/textutil.vim.git
+[submodule "bundle/Dpaste.com"]
+	path = bundle/Dpaste.com
+	url = git://github.com/vim-scripts/Dpaste.com-Plugin.git
+[submodule "bundle/paster.vim"]
+	path = bundle/paster.vim
+	url = git://github.com/weierophinney/paster.vim.git
