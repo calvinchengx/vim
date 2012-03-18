@@ -24,6 +24,7 @@ colorscheme mustang
 "colorscheme pablo
 "set transparency=25
 
+filetype plugin on
 
 set nofoldenable
 "set foldmethod=indent
