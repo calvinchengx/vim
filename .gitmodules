@@ -67,3 +67,6 @@
 [submodule "bundle/gist-vim"]
 	path = bundle/gist-vim
 	url = git://github.com/mattn/gist-vim.git
+[submodule "bundle/vim-makegreen"]
+	path = bundle/vim-makegreen
+	url = git://github.com/reinh/vim-makegreen.git
