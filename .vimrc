@@ -312,3 +312,77 @@ function! QuickfixFilenames()
 endfunction
 
 map <leader>b :ls<CR>:b
+
+" python/django unit tests
+let g:makeprg_django_app = 'python\ manage.py\ test\ -v\ 0'
+let g:makeprg_django_project = 'python\ manage.py\ test'
+set errorformat=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
+
+function! RunTestsForFile(args)
+    if @% =~ '\.py$'
+        let expandstr = '%:p:h' " dirname
+        while expand(expandstr) != '/'
+            let testpath = expand(expandstr)
+            if len(getfperm(testpath . '/tests')) > 0 || len(getfperm(testpath . '/tests.py')) > 0
+                call RunTests(expand(expandstr . ':t'), a:args)
+                return
+            endif
+            let expandstr .= ':h'
+        endwhile
+    endif
+    call RunTests('', a:args)
+endfunction
+
+function! RunTests(target, args)
+    silent ! echo
+    silent ! echo -e "\033[1;36mRunning all unit tests\033[0m"
+    silent w
+    if len(a:target)
+        execute 'set makeprg=' . g:makeprg_django_app
+    else
+        execute 'set makeprg=' . g:makeprg_django_project
+    endif
+    exec "make! " . a:target . " " . a:args
+endfunction
+
+function! JumpToError()
+    let has_valid_error = 0
+    for error in getqflist()
+        if error['valid']
+            let has_valid_error = 1
+            break
+        endif
+    endfor
+    if has_valid_error
+        for error in getqflist()
+            if error['valid']
+                break
+            endif
+        endfor
+        let error_message = substitute(error['text'], '^ *', '', 'g')
+        silent cc!
+        exec ":sbuffer " . error['bufnr']
+        call RedBar()
+        echo error_message
+    else
+        call GreenBar()
+        echo "All tests passed"
+    endif
+endfunction
+
+function! RedBar()
+    hi RedBar ctermfg=white ctermbg=red guibg=red
+    echohl RedBar
+    echon repeat(" ",&columns - 1)
+    echohl
+endfunction
+
+function! GreenBar()
+    hi GreenBar ctermfg=white ctermbg=green guibg=green
+    echohl GreenBar
+    echon repeat(" ",&columns - 1)
+    echohl
+endfunction
+
+nnoremap <leader>a :call RunTests('', '')<cr>:redraw<cr>:call JumpToError()<cr>
+nnoremap <leader>y :call RunTestsForFile('--failfast')<cr>:redraw<cr>:call JumpToError()<cr>
