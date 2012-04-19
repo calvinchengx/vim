@@ -12,9 +12,9 @@ call pathogen#infect()
 
 " set your colorscheme. 
 
-colorscheme mustang
+"colorscheme mustang
 "colorscheme zenburn
-"colorscheme elflord
+colorscheme elflord
 "colorscheme django
 "colorscheme blacklight
 "colorscheme wombat
@@ -31,6 +31,7 @@ set nofoldenable
 "set foldlevel=99
 "set foldnestmax=2
 
+set clipboard=unnamed
 set title
 " These two lines are not portable on linux
 " set lines=999
