@@ -273,7 +273,7 @@ map til /utils.py<CR><CR>
 map <C-c> i/*<CR>*/
 
 """ Maps for tap navigation
-map <C-t> :tabnew<CR>
+"map <C-t> :tabnew<CR>
 "map <C-w> :tabclose<CR>
 
 set statusline=%m%F%r%h%w\ %y\ [line:%04l\ col:%04v]\ [%p%%]\ [lines:%L]
