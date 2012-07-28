@@ -11,10 +11,20 @@
 call pathogen#infect()
 
 " set your colorscheme. 
+if &diff
+    set background=dark
+    colorscheme peaksea
+else
+    colorscheme elflord
+endif
+
+" This caters for the scenario when vimdiff is called while inside a vim buffer
+au FilterWritePost * if &diff | set bg=dark | colorscheme peaksea | else | colorscheme elflord | endif
+au BufWinLeave * colorscheme elflord
 
 "colorscheme mustang
 "colorscheme zenburn
-colorscheme elflord
+"colorscheme elflord
 "colorscheme django
 "colorscheme blacklight
 "colorscheme wombat
@@ -23,6 +33,10 @@ colorscheme elflord
 "colorscheme torte
 "colorscheme pablo
 "set transparency=25
+
+" vimdiff color scheme
+"highlight DiffChange cterm=none ctermfg=black ctermbg=LightGreen gui=none guifg=bg guibg=LightGreen
+"highlight DiffText cterm=none ctermfg=black ctermbg=Red gui=none guifg=bg guibg=Red
 
 filetype plugin on
 
