@@ -18,6 +18,7 @@ let g:SuperTabDefaultCompletionType = "context"
 autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
+
 " set your colorscheme. 
 if &diff
     set background=dark
