@@ -410,3 +410,9 @@ endfunction
 
 nnoremap <leader>a :call RunTests('', '')<cr>:redraw<cr>:call JumpToError()<cr>
 nnoremap <leader>y :call RunTestsForFile('--failfast')<cr>:redraw<cr>:call JumpToError()<cr>
+
+" Plugin settings
+let g:syntastic_mode_map = { 'mode': 'passive' }
+let g:syntastic_error_symbol='‚úó'
+let g:syntastic_warning_symbol='‚ö†'
+let g:syntastic_python_checker_args='--ignore=E501'
