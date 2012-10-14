@@ -91,3 +91,12 @@
 [submodule "bundle/vim-aftercolors"]
 	path = bundle/vim-aftercolors
 	url = git://github.com/calvinchengx/vim-aftercolors.git
+[submodule "bundle/VimRepress"]
+	path = bundle/VimRepress
+	url = git://github.com/vim-scripts/VimRepress.git
+[submodule "bundle/ini-syntax-definition"]
+	path = bundle/ini-syntax-definition
+	url = git://github.com/vim-scripts/ini-syntax-definition.git
+[submodule "bundle/MatchTag"]
+	path = bundle/MatchTag
+	url = git://github.com/gregsexton/MatchTag.git
