@@ -157,6 +157,7 @@ endif
 "onoremap <D-Down> <C-C>gt
 
 au BufNewFile,BufRead *.map setf map
+au BufNewFile,BufRead *.ini,*/.hgrc,*/.hg/hgrc setf ini 
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
@@ -306,6 +307,7 @@ set ic
 set scs
 set tabstop=4
 set autoread
+set tags=./tags,$VIRTUAL_ENV/tags;/
 
 "
 " put some quick abbreviations
@@ -410,3 +412,9 @@ endfunction
 
 nnoremap <leader>a :call RunTests('', '')<cr>:redraw<cr>:call JumpToError()<cr>
 nnoremap <leader>y :call RunTestsForFile('--failfast')<cr>:redraw<cr>:call JumpToError()<cr>
+
+" Plugin settings
+let g:syntastic_mode_map = { 'mode': 'passive' }
+let g:syntastic_error_symbol='‚úó'
+let g:syntastic_warning_symbol='‚ö†'
+let g:syntastic_python_checker_args='--ignore=E501'

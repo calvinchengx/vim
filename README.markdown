@@ -1,3 +1,5 @@
+Version 0.0.1
+
 Quickly install with:
 
 	cd ~
