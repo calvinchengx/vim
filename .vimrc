@@ -279,6 +279,7 @@ map <F6> :rightbelow vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
 "show hidden files in nerdtree
 let NERDTreeShowHidden=1
+let NERDTreeDirArrows=0
 
 "Django
 "for templates
