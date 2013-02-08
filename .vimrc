@@ -271,9 +271,14 @@ map <D-j> :nohlsearch<CR>
 map <D-J> :set hlsearch<CR>
 
 "map browse files
+map <F2> :NERDTreeToggle<CR>:set encoding=utf-8<CR>
 map <F3> :o .<CR>
 map <F4> :Ex <CR>
 map <F5> :nohl <CR>
+map <F6> :rightbelow vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+
+"show hidden files in nerdtree
+let NERDTreeShowHidden=1
 
 "Django
 "for templates
@@ -308,8 +313,10 @@ set scs
 set tabstop=4
 set autoread
 set tags=./tags,$VIRTUAL_ENV/tags;/
+set encoding=utf-8
+set fileencodings=utf-8
+set binary
 
-"
 " put some quick abbreviations
 ab javoid href="javascript:void(0);"
 ab jaclick onclick="javascript:"
