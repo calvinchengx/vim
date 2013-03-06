@@ -120,13 +120,15 @@ endif
 let mapleader = ","
 
 if has("gui_running")
-    set guitablabel=%t%=%m  "Set the label of the tabs
-    set nomacatsui anti enc=utf-8 tenc=macroman gfn=Monaco:h11
-    " set window size
-    set lines=40
-    set columns=120
+	set guitablabel=%t%=%m  "Set the label of the tabs
+	set nomacatsui anti enc=utf-8 tenc=macroman gfn=Monaco:h11
+	" set window size
+	set lines=40
+	set columns=120
 else
-    set enc=utf-8 tenc=macroman gfn=Monaco:h11
+	"set enc=utf-8 tenc=macroman gfn=Monaco:h11
+	set enc=utf-8 tenc=utf-8 gfn=Monaco:h11
+	set fenc=utf-8
 endif
 
 "nmap <C><Up> :tabnew<CR>
@@ -306,7 +308,7 @@ map <C-c> i/*<CR>*/
 "map <C-t> :tabnew<CR>
 "map <C-w> :tabclose<CR>
 
-set statusline=%m%F%r%h%w\ %y\ [line:%04l\ col:%04v]\ [%p%%]\ [lines:%L]
+set statusline=%{fugitive#statusline()}\ m%F%r%h%w\ %y\ [line:%04l\ col:%04v]\ [%p%%]\ [lines:%L]
 set laststatus=2
 set shiftwidth=4
 set ic
@@ -314,9 +316,16 @@ set scs
 set tabstop=4
 set autoread
 set tags=./tags,$VIRTUAL_ENV/tags;/
-set encoding=utf-8
-set fileencodings=utf-8
 set binary
+if has("multi_byte")
+  if &termencoding == ""
+	let &termencoding = &encoding
+  endif
+  set encoding=utf-8
+  setglobal fileencoding=utf-8
+  "setglobal bomb
+  set fileencodings=ucs-bom,utf-8,latin1
+endif
 
 " put some quick abbreviations
 ab javoid href="javascript:void(0);"
