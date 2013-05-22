@@ -278,10 +278,14 @@ map <F3> :o .<CR>
 map <F4> :Ex <CR>
 map <F5> :nohl <CR>
 map <F6> :rightbelow vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+map <F7> :NERDTreeClose<CR>
 
 "show hidden files in nerdtree
 let NERDTreeShowHidden=1
 let NERDTreeDirArrows=0
+
+"NERDTree customization
+let NERDTreeMapOpenInTab='<tab>t'
 
 "Django
 "for templates
