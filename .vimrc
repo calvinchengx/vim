@@ -120,13 +120,15 @@ endif
 let mapleader = ","
 
 if has("gui_running")
-    set guitablabel=%t%=%m  "Set the label of the tabs
-    set nomacatsui anti enc=utf-8 tenc=macroman gfn=Monaco:h11
-    " set window size
-    set lines=40
-    set columns=120
+	set guitablabel=%t%=%m  "Set the label of the tabs
+	set nomacatsui anti enc=utf-8 tenc=macroman gfn=Monaco:h11
+	" set window size
+	set lines=40
+	set columns=120
 else
-    set enc=utf-8 tenc=macroman gfn=Monaco:h11
+	"set enc=utf-8 tenc=macroman gfn=Monaco:h11
+	set enc=utf-8 tenc=utf-8 gfn=Monaco:h11
+	set fenc=utf-8
 endif
 
 "nmap <C><Up> :tabnew<CR>
@@ -271,9 +273,19 @@ map <D-j> :nohlsearch<CR>
 map <D-J> :set hlsearch<CR>
 
 "map browse files
+map <F2> :NERDTreeToggle<CR>:set encoding=utf-8<CR>
 map <F3> :o .<CR>
 map <F4> :Ex <CR>
 map <F5> :nohl <CR>
+map <F6> :rightbelow vsp <CR>:exec("tag ".expand("<cword>"))<CR>
+map <F7> :NERDTreeClose<CR>
+
+"show hidden files in nerdtree
+let NERDTreeShowHidden=1
+let NERDTreeDirArrows=0
+
+"NERDTree customization
+let NERDTreeMapOpenInTab='<tab>t'
 
 "Django
 "for templates
@@ -300,7 +312,7 @@ map <C-c> i/*<CR>*/
 "map <C-t> :tabnew<CR>
 "map <C-w> :tabclose<CR>
 
-set statusline=%m%F%r%h%w\ %y\ [line:%04l\ col:%04v]\ [%p%%]\ [lines:%L]
+set statusline=%{fugitive#statusline()}\ m%F%r%h%w\ %y\ [line:%04l\ col:%04v]\ [%p%%]\ [lines:%L]
 set laststatus=2
 set shiftwidth=4
 set ic
@@ -308,8 +320,17 @@ set scs
 set tabstop=4
 set autoread
 set tags=./tags,$VIRTUAL_ENV/tags;/
+set binary
+if has("multi_byte")
+  if &termencoding == ""
+	let &termencoding = &encoding
+  endif
+  set encoding=utf-8
+  setglobal fileencoding=utf-8
+  "setglobal bomb
+  set fileencodings=ucs-bom,utf-8,latin1
+endif
 
-"
 " put some quick abbreviations
 ab javoid href="javascript:void(0);"
 ab jaclick onclick="javascript:"
@@ -418,3 +439,5 @@ let g:syntastic_mode_map = { 'mode': 'passive' }
 let g:syntastic_error_symbol='‚úó'
 let g:syntastic_warning_symbol='‚ö†'
 let g:syntastic_python_checker_args='--ignore=E501'
+
+let g:pymode_lint_ignore = "W404,E501"

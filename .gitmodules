@@ -100,3 +100,15 @@
 [submodule "bundle/MatchTag"]
 	path = bundle/MatchTag
 	url = git://github.com/gregsexton/MatchTag.git
+[submodule "bundle/nerdtree"]
+	path = bundle/nerdtree
+	url = git://github.com/scrooloose/nerdtree.git
+[submodule "bundle/vim-gitgutter"]
+	path = bundle/vim-gitgutter
+	url = git://github.com/airblade/vim-gitgutter.git
+[submodule "bundle/CoVim"]
+	path = bundle/CoVim
+	url = git://github.com/FredKSchott/CoVim.git
+[submodule "bundle/vim-obsession"]
+	path = bundle/vim-obsession
+	url = git://github.com/tpope/vim-obsession.git
