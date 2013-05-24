@@ -115,6 +115,3 @@
 [submodule "bundle/javascript-libraries-syntax.vim"]
 	path = bundle/javascript-libraries-syntax.vim
 	url = git://github.com/othree/javascript-libraries-syntax.vim.git
-[submodule "bundle/jslint.vim"]
-	path = bundle/jslint.vim
-	url = git://github.com/hallettj/jslint.vim.git
