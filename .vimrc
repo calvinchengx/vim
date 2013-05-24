@@ -444,6 +444,6 @@ let g:pymode_lint_ignore = "W404,E501"
 " javascript-libraries-syntax.vim plugin
 let g:used_javascript_libs = 'angularjs'
 
-" Customize jslint highlights 
+" Customize jshint highlights 
 hi clear SpellBad
 hi SpellBad cterm=underline,bold ctermfg=white ctermbg=DarkRed
