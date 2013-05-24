@@ -434,10 +434,16 @@ endfunction
 nnoremap <leader>a :call RunTests('', '')<cr>:redraw<cr>:call JumpToError()<cr>
 nnoremap <leader>y :call RunTestsForFile('--failfast')<cr>:redraw<cr>:call JumpToError()<cr>
 
-" Plugin settings
+" syntastic.vim plugin settings
 let g:syntastic_mode_map = { 'mode': 'passive' }
 let g:syntastic_python_checker_args='--ignore=E501'
 
+" syntastic.vim plugin includes pylint
 let g:pymode_lint_ignore = "W404,E501"
 
+" javascript-libraries-syntax.vim plugin
 let g:used_javascript_libs = 'angularjs'
+
+" Customize jslint highlights 
+hi clear SpellBad
+hi SpellBad cterm=underline,bold ctermfg=white ctermbg=DarkRed
