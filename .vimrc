@@ -441,3 +441,5 @@ let g:syntastic_warning_symbol='‚ö†'
 let g:syntastic_python_checker_args='--ignore=E501'
 
 let g:pymode_lint_ignore = "W404,E501"
+
+let g:used_javascript_libs = 'angularjs'
