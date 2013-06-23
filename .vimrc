@@ -54,7 +54,9 @@ set nofoldenable
 "set foldlevel=99
 "set foldnestmax=2
 
-set clipboard=unnamed
+if $TMUX == ''
+	set clipboard=unnamed
+endif
 set title
 " These two lines are not portable on linux
 " set lines=999
@@ -433,6 +435,9 @@ endfunction
 
 nnoremap <leader>a :call RunTests('', '')<cr>:redraw<cr>:call JumpToError()<cr>
 nnoremap <leader>y :call RunTestsForFile('--failfast')<cr>:redraw<cr>:call JumpToError()<cr>
+
+" disable folding in vim markdown
+let g:vim_markdown_folding_disabled=1
 
 " syntastic.vim plugin settings
 let g:syntastic_mode_map = { 'mode': 'passive' }
