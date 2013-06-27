@@ -7,6 +7,11 @@
 "	      for Amiga:  s:.vimrc
 "  for MS-DOS and Win32:  $VIM\_vimrc
 "	    for OpenVMS:  sys$login:.vimrc
+"
+
+" Needed to ensure jshint highlights work right
+autocmd ColorScheme * hi clear SpellBad 
+			\| hi SpellBad cterm=underline,bold ctermfg=white ctermbg=black
 
 call pathogen#infect()
 
@@ -27,9 +32,10 @@ else
     colorscheme elflord
 endif
 
+" This screws up jshint autocmd TODO: implement without causing it to break
 " This caters for the scenario when vimdiff is called while inside a vim buffer
-au FilterWritePost * if &diff | set bg=dark | colorscheme peaksea | else | colorscheme elflord | endif
-au BufWinLeave * colorscheme elflord
+" au FilterWritePost * if &diff | set bg=dark | colorscheme peaksea | else | colorscheme elflord | endif
+" au BufWinLeave * colorscheme elflord
 
 "colorscheme mustang
 "colorscheme zenburn
@@ -450,5 +456,5 @@ let g:pymode_lint_ignore = "W404,E501"
 let g:used_javascript_libs = 'angularjs'
 
 " Customize jshint highlights 
-hi clear SpellBad
-hi SpellBad cterm=underline,bold ctermfg=white ctermbg=DarkRed
+"hi clear SpellBad
+"hi SpellBad cterm=underline,bold ctermfg=white ctermbg=black
