@@ -7,6 +7,11 @@
 "	      for Amiga:  s:.vimrc
 "  for MS-DOS and Win32:  $VIM\_vimrc
 "	    for OpenVMS:  sys$login:.vimrc
+"
+
+" Needed to ensure jshint highlights work right
+autocmd ColorScheme * hi clear SpellBad 
+			\| hi SpellBad cterm=underline,bold ctermfg=white ctermbg=black
 
 call pathogen#infect()
 
@@ -27,9 +32,10 @@ else
     colorscheme elflord
 endif
 
+" This screws up jshint autocmd TODO: implement without causing it to break
 " This caters for the scenario when vimdiff is called while inside a vim buffer
-au FilterWritePost * if &diff | set bg=dark | colorscheme peaksea | else | colorscheme elflord | endif
-au BufWinLeave * colorscheme elflord
+" au FilterWritePost * if &diff | set bg=dark | colorscheme peaksea | else | colorscheme elflord | endif
+" au BufWinLeave * colorscheme elflord
 
 "colorscheme mustang
 "colorscheme zenburn
@@ -54,7 +60,9 @@ set nofoldenable
 "set foldlevel=99
 "set foldnestmax=2
 
-set clipboard=unnamed
+if $TMUX == ''
+	set clipboard=unnamed
+endif
 set title
 " These two lines are not portable on linux
 " set lines=999
@@ -434,10 +442,19 @@ endfunction
 nnoremap <leader>a :call RunTests('', '')<cr>:redraw<cr>:call JumpToError()<cr>
 nnoremap <leader>y :call RunTestsForFile('--failfast')<cr>:redraw<cr>:call JumpToError()<cr>
 
-" Plugin settings
+" disable folding in vim markdown
+let g:vim_markdown_folding_disabled=1
+
+" syntastic.vim plugin settings
 let g:syntastic_mode_map = { 'mode': 'passive' }
-let g:syntastic_error_symbol='‚úó'
-let g:syntastic_warning_symbol='‚ö†'
 let g:syntastic_python_checker_args='--ignore=E501'
 
+" syntastic.vim plugin includes pylint
 let g:pymode_lint_ignore = "W404,E501"
+
+" javascript-libraries-syntax.vim plugin
+let g:used_javascript_libs = 'angularjs'
+
+" Customize jshint highlights 
+"hi clear SpellBad
+"hi SpellBad cterm=underline,bold ctermfg=white ctermbg=black
