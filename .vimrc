@@ -448,6 +448,7 @@ let g:vim_markdown_folding_disabled=1
 " syntastic.vim plugin settings
 let g:syntastic_mode_map = { 'mode': 'passive' }
 let g:syntastic_python_checker_args='--ignore=E501'
+let g:syntastic_javascript_checker_conf='~/work/hellohome/.jshintrc'
 
 " syntastic.vim plugin includes pylint
 let g:pymode_lint_ignore = "W404,E501"

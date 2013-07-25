@@ -115,9 +115,6 @@
 [submodule "bundle/javascript-libraries-syntax.vim"]
 	path = bundle/javascript-libraries-syntax.vim
 	url = git://github.com/othree/javascript-libraries-syntax.vim.git
-[submodule "bundle/jshint.vim"]
-	path = bundle/jshint.vim
-	url = git://github.com/wookiehangover/jshint.vim.git
 [submodule "bundle/riv.vim"]
 	path = bundle/riv.vim
 	url = git://github.com/Rykka/riv.vim.git
